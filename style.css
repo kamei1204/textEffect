@@ -1,0 +1,42 @@
+* {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #111;
+}
+h2 {
+    position: relative;
+    font-size: 8em;
+    text-transform: uppercase;
+    color: #222;
+    
+}
+h2::before {
+    content: attr(data-text);
+    color: #fff;
+    position: absolute;
+    overflow: hidden;
+    width: 300px;
+    /* white-space ソース中の連続する半角スペース、タブ、改行を一つの半角スペースにまとめて表示します。自動的な折り返しは行いません。 */
+    white-space: nowrap;
+    border-right: 4px solid #fff;
+    animation: animate 6s linear infinite;
+    /* filter: drop-shadow(左右の位置 上下の位置 ぼかし 色) drop-shadow(左右の位置 上下の位置 ぼかし 色) ...; */
+    /* スペースで区切ることで複数の影を設定することができます。 */
+    filter: drop-shadow(0 0 20px #fff) drop-shadow(0 0 50px #fff);
+}
+@keyframes animate {
+    0%,10%,100%{
+        width: 0;
+    }
+    70%, 90% {
+        width: 100%;
+    }
+}
